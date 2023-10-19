@@ -1,0 +1,35 @@
+ConSurf Job Status Page - RUNNING
+
+ConSurf is now processing your job number 1652458725, titled: Sanket.
+This page will be automatically updated every 30 seconds. You can also reload it manually.
+Once the job has finished, several links to the output files will appear below, including links to view the 3D-Structure of the protein with the conservation scores.
+
+If you wish to view these results at a later time without recalculating them, please bookmark this page. The results will be kept on the server for one month.
+Running Parameters:
+Structure
+   Not Given. Running in 'ConSeq' mode
+Alignment
+   Multiple Sequence Alignment was built using MAFFT
+   The Homologues were collected from UNIREF90
+   Homolog search algorithm: HMMER
+   HMMER E-value: 0.0001
+   No. of HMMER Iterations: 1
+
+   Maximal %ID Between Sequences : 95
+   Minimal %ID For Homologs : 35
+   150 sequences that sample the list of homologues to the query.
+
+Phylogenetic Tree
+   Neighbor Joining with ML distance
+Conservation Scores
+   Method of Calculation: Bayesian
+   Model of substitution for proteins: Best fit
+Run progress:
+Find sequence homologs
+Align sequences
+Select best evolutionary model
+Calculate conservation scores
+Search for 3D structure for the protein sequence
+Project conservation scores onto the molecule
+Running Messages:
+MODELLER key was not provided, ConSurf run continues without structure prediction for your query sequence

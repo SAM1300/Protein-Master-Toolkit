@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+    <title>Contact Us</title>
+    <style>
+    * {
+            font-family: 'Quicksand', sans-serif;
+
+        }
+
+        content {
+            color: white;
+        }
+
+        /*header {
+            background-color: rgb(29 180 187);
+        }*/
+
+        .search input {
+            margin: 12px;
+            padding-left: 5px;
+            margin-top: 14px;
+        }
+
+        #left {
+            /*border: 10px solid green;*/
+            display: inline-block;
+
+
+        }
+
+        #left img {
+            width: 97px;
+            height: 75px;
+            margin-left: 2px;
+            margin-top: 2px;
+        }
+
+
+        #right {
+            /*border: 10px solid yellow;*/
+            width: 100vw;
+
+        }
+
+        #navb {
+            position: relative;
+            background-image: linear-gradient(to right, rgb(64, 137, 233, 1), rgba(64, 137, 233, 0.2));
+            padding: 1rem;
+            padding-bottom: 0rem;
+            z-index: 1;
+            box-sizing: border-box;
+            top: -1vh;
+            width:100%;
+        }
+
+
+        #navb ul li {
+            display: inline-block;
+
+
+            margin-left: 11rem;
+            font-family: 'Nunito', sans-serif;
+            font-size: 19px;
+
+            border-style: none;
+            color: white;
+            padding: 1em;
+        }
+
+        #navb ul li:hover {
+            text-decoration: underline;
+            color: black;
+            background-color: white;
+        }
+
+        /*border: 2px solid blue ;
+            margin-left: 119px;
+            border-radius: 12px;
+            background-color: rgb(43, 246, 253);
+            padding: 12px;
+            box-sizing: border-box;
+        }*/
+        .btn {
+            color: white;
+            background-color: rgb(64, 137, 233);
+            border: 1px solid rgb(64, 137, 233);
+            margin-left: 129px;
+            padding: 12px;
+            box-sizing: border-box;
+            max-width: 80px;
+            border-radius: 12px;
+
+        }
+
+        .btn:hover {
+
+            box-shadow: 2px 2px 4px black;
+        }
+
+        #i1 {
+            position: relative;
+            top: -15px;
+            left: 20px;
+            border: 2px solid black;
+        }
+
+        .rad2 {
+            margin-left: 50px;
+        }
+
+        .collapsible {
+            background-color: rgb(64, 137, 233);
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            margin-top: 12px;
+            width: 81rem;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .anim {
+            animation: fadeIn 0.5s ease-in-out;
+            -webkit-animation: fadeIn 0.5s ease-in-out;
+            -moz-animation: fadeIn 0.5s ease-in-out;
+            -o-animation: fadeIn 0.5s ease-in-out;
+            -ms-animation: fadeIn 0.55s ease-in-out;
+        }
+
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+
+        }
+
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        .active,
+        .collapsible:hover {
+            background-color: rgb(19, 104, 214);
+        }
+
+        /* Style the collapsible content. Note: hidden by default */
+        .content {
+            padding: 0 0px;
+            /*display: none;*/
+            overflow: hidden;
+            background-color: #f1f1f1;
+            max-height: 0;
+            width: 1295px;
+            box-sizing: border-box;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .collapsible:after {
+            content: "\0002B";
+            /* Unicode character for "plus" sign (+) */
+            font-size: 13px;
+            color: white;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2796";
+            /* Unicode character for "minus" sign (-) */
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            float: left;
+            background-color: rgb(120, 171, 236);
+            height: 306vh;
+            position: relative;
+
+            top: -1.3rem;
+            width: 376px;
+            z-index: 0;
+
+
+        }
+
+        #container ul li a {
+            font-size: 21px;
+            display: inline-block;
+
+            padding-left: 13px;
+            /*margin-top: 12px;*/
+            font-family: 'Nunito', sans-serif;
+            color: white;
+
+
+
+        }
+
+        #container ul li a:hover {
+            text-decoration: underline;
+
+        }
+
+        /* #col-1 {
+            display: inline-block;
+            position: relative;
+            top: -10rem;
+            left: 33rem;
+        }
+
+        #col-2 {
+            margin-top: 86px;
+            margin-left: 33rem;
+        }*/
+
+        #f {
+            position: relative;
+            top: -7rem;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #bada {
+            display: flex;
+            flex-direction: column;
+
+            max-width: 82rem;
+            float: right;
+            position: relative;
+            top: 3rem;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+
+
+        }
+
+        #btn-1 {
+            margin-top: 1vh;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Josefin Sans', sans-serif;
+            max-width: 82rem;
+            float: right;
+            position: relative;
+            top: 7rem;
+            right: 44vw;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+
+
+
+        /* #b{
+            display: inline-block;
+            position:relative;
+            top: -18rem;
+            border: 2px solid red;
+        }*/
+        #logo {
+            height: 20px;
+            width: 30px;
+            position: relative;
+            left: 20px;
+        }
+
+        .pred {
+            position: relative;
+            top: 2rem;
+            left: 0rem;
+            padding-left: 2vw;
+            width: 18.4vw;
+            height: 2.5rem;
+            padding-top: 0.18em;
+
+        }
+
+        .pred:after {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f0d7";
+            float: right;
+            padding-right: 1vw;
+            vertical-align: center;
+            /* transform: translateY(50%);*/
+            color: white;
+            transition: transform 0.5s;
+
+
+        }
+
+        .pred:hover {
+            background-color: rgb(19, 104, 214);
+            cursor: pointer;
+
+        }
+
+        .pred:active {
+            background-color: rgb(19, 104, 214);
+        }
+
+        .cocon {
+            padding: 0 18px;
+            display:block;
+            overflow: hidden;
+            background-color: rgb(120, 171, 236);
+            height:0px;
+            transition: height 0.5s ease-in-out;
+            -webkit-transition: height 0.5s ease-in-out;
+            -moz-transition: height 0.5s ease-in-out;
+
+        }
+
+      /*  @keyframes trans {
+            from {
+                height: 0px;
+            }
+
+            to {
+                height: 430px;
+            }
+
+        }*/
+
+        .cocon_new2 {
+            height: 0rem;
+            animation: trans_new 1s ease-in-out;
+            -webkit-animaton: trans_new 1s ease-in-out;
+            -moz-animation: trans_new 1s ease-in-out;
+        }
+
+        @keyframes trans_new {
+            from {
+                height: 16rem;
+            }
+
+            to {
+                height: 0rem;
+            }
+
+        }
+
+       /* .cocon.closed {
+            height: 0px;
+        }*/
+
+        .hb {
+
+            height: 20rem;
+            position: relative;
+            top: 1rem;
+            left: 1rem;
+        }
+
+        #home {
+            position: relative;
+            left: 24rem;
+        }
+
+        .pred_sel {
+            background-color: rgb(19, 104, 214);
+        }
+
+        .pred_sel::after {
+            /*content:"\f098";*/
+            transform: rotateX(180deg);
+        }
+
+        nav>p {
+            font-size: 38px;
+            display: inline-block;
+            left: 8%;
+            top: 2%;
+            position: relative;
+            color: white;
+        }
+
+        #iiser {
+            height: 19rem;
+            position: relative;
+            left: 23%;
+            top: 1rem;
+        }
+
+        #PM {
+            height: 10rem;
+            width: 5rem;
+        }
+
+        .content_anim {
+            height: 16rem;
+            animation: content_anim 1s ease-in-out;
+            -webkit-animation: content_anim 1s ease-in-out;
+
+        }
+
+        @keyframes content_anim {
+            from {
+                height: 0rem;
+            }
+
+            to {
+                height: 16rem;
+            }
+
+        }
+
+        hr {
+            color: black;
+            width: 76vw;
+            height: 0px;
+
+        }
+
+        .al {
+            width: 24vw;
+
+            padding-right: 4rem;
+            /* padding-left: 5rem;*/
+            position: relative;
+            left: -5vw;
+        }
+
+        #ul_new {
+            position: relative;
+            left: 12vw;
+
+        }
+        #sub_navb{
+            display: flex;
+
+
+        }
+        .s-s-nav{
+            display: flex;
+            flex-direction: row;
+
+            background-image: linear-gradient(to right, rgb(120,171,236,1), rgb(120,171,236,0.2));
+            position: relative;
+            list-style: none;
+            left: 20.3vw;
+            justify-content: space-evenly;
+            width: 75.9vw;
+            top: -2.7rem;
+            height: 7vh;
+            align-items: center;
+            float:right;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            -webkit-transition: opacity 0.5s ease-in-out;
+            -moz-transition: opacity 0.5s ease-in-out;
+        }
+
+
+        .s-s-nav li a{
+            color: black;
+
+        }
+        .s-s-nav li{
+            padding-top: 12px;
+            padding-bottom: 12px;
+            margin-top: 11px;
+        }
+        .s-s-nav li:hover{
+            text-decoration:underline;
+
+        }
+        iframe{
+            height: 150vh;
+            width: 74vw;
+            position:relative;
+            top:5rem;
+            left: -2rem;
+            border: 2px solid blue;
+            float: right;
+        }
+        .al h2{
+            background-image: linear-gradient(to right, rgb(64,137,233,1), rgb(64,137,233,0.2));
+            color:white;
+            width: 73vw;
+            padding: 2%;
+            margin-bottom: 2%;
+        }
+        .prop{
+        font-weight: bold;
+        font-size: 20px;
+        }
+
+html {
+  font-size: 62.5%;
+}
+
+h2::selection,
+label::selection,
+button::selection {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.wrapper {
+  width: 90%;
+  padding: 2rem;
+  background: #fff;
+
+}
+h2 {
+  background: rgba(173, 216, 230, 0.7);
+  letter-spacing: 0.1rem;
+  padding: 1rem;
+  cursor: default;
+}
+form,
+input,
+textarea,
+button {
+  font-family: inherit;
+  font-size: initial;
+}
+.form-group label {
+  display: block;
+  margin: 2rem 0 0.5rem 0;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+  width: 100%;
+  padding: 1rem 0.8rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  outline: 0;
+  transition: border 0.15s;
+}
+.form-group input[type="text"],
+.form-group input[type="email"] {
+  height: 4.6rem;
+}
+.form-group textarea {
+  resize: vertical;
+}
+.submit {
+  font-weight: bold;
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  border: none;
+  background: rgb(173, 216, 230);
+  cursor: pointer;
+  transition: background 0.15s;
+  width:100%;
+}
+i {
+  margin-right: 0.5rem;
+}
+.submit:hover {
+  background: rgba(173, 216, 230, 1);
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+  border: 1px solid #222;
+}
+
+@media screen and (min-width: 576px) {
+  .wrapper {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .wrapper {
+    width: 55%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .wrapper {
+    width: 45%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+#main{
+border-right: 5px solid transparent ;
+height: 12%;
+border-image: linear-gradient(to bottom, rgba(64,137,233,1), rgba(64,137,233,0.2));
+border-image-slice: 1;
+width:50%;
+}
+#another{
+width: 50%;
+float: right;
+display:inline-block;
+box-sizing:border-box;
+padding-left: 2%;
+margin-top: -30%;
+font-size: 20px;
+}
+.alert {
+        position: absolute;
+        width: 50%;
+        padding: 1rem 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+        top: 87%;
+        left: 0%;
+        }
+    </style>
+  </head>
+  <body>
+   <nav id="navb">
+            {% load static %}
+            <img src="{% static 'ASAP2.png'%}" class="hb">
+            <p id="pmtk"><strong>Automated Sequence-Structure Analysis Project 1.0</strong></p>
+            <img src="{% static 'iiser.png' %}" id="iiser">
+            <ul id="home">
+                <li> Home </li>
+                <li>Contacts</li>
+                <li> People</li>
+                <li> Academic</li>
+            </ul>
+        </nav>
+<div id="main">
+  <div class="wrapper">
+
+    <form action="/Contacts/" method="POST">
+        {% csrf_token %}
+      <div class="form-group">
+        <label for="name"><h3>Full Name</h3></label>
+        <input type="text" name="Name" id="name"  required  />
+      </div><br><br>
+      <div class="form-group">
+        <label for="email"><h3>Email Address</h3></label>
+        <input type="email" name="Email" id="email" placeholder="email@domain.tld" required />
+      </div><br><br>
+      <div class="form-group">
+        <label for="message"><h3>Message</h3></label>
+        <textarea name="Message" id="message" rows="5" placeholder="Type your message here...."></textarea>
+      </div><br><br>
+      <div class="form-group">
+        <button type="submit" class="submit" name="sub" value="submission"><i class="far fa-paper-plane"></i>Submit</button>
+      </div>
+    </form>
+
+  </div>
+   </div>
+   <div id="another">
+       <p> <strong>Address:</strong> HB Lab<br> IISER Tirupati<br> Karkambadi road<br> Mangalam<br> Tirupati<br> Andhra Pradesh<br> India</p><br>
+
+   </div>
+   {% if messages%}
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{message}}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

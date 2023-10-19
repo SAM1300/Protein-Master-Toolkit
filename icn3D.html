@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>icnsee3D</title>
+    <link rel="stylesheet" href="https://www.ncbi.nlm.nih.gov/Structure/icn3d/lib/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://www.ncbi.nlm.nih.gov/Structure/icn3d/icn3d.css">
+    <script src="https://www.ncbi.nlm.nih.gov/Structure/icn3d/lib/jquery.min.js"></script>
+    <script src="https://www.ncbi.nlm.nih.gov/Structure/icn3d/lib/jquery-ui.min.js"></script>
+    <script src="https://www.ncbi.nlm.nih.gov/Structure/icn3d/lib/threeClass.min.js"></script>
+    <script src="https://www.ncbi.nlm.nih.gov/Structure/icn3d/icn3d.min.js"></script>
+
+</head>
+<body>
+<!--<iframe allowFullScreen="true" id="icn3D"  width="320" height="320" style="border:none"></iframe>
+<script>
+    let url = "http://0.0.0.0:8080/static/4hhb.pdb";
+    let new_url = encodeURIComponent(url)
+    let ifra = document.getElementById("icn3D");
+    ifra.src = `https://www.ncbi.nlm.nih.gov/Structure/icn3d/full.html?url=${new_url}&type=pdb&width=300&height=300&showcommand=0&shownote=0&mobilemenu=1&showtitle=0`
+
+
+</script>-->
+<div id="icn3dwrap"></div>
+<script>
+     //============ modify default functions =========
+      // e.g., add the b-factor information in the mouseover
+      icn3d.Picking.prototype.showPicking = function(atom, x, y) { let ic = this.icn3d, me = ic.icn3dui;
+          //me = ic.setIcn3dui(ic.id);
+          if(me.cfg.cid !== undefined && ic.pk != 0) {
+              ic.pk = 1; // atom
+          }
+          else {
+              // do not change the picking option
+          }
+          ic.highlightlevel = ic.pk;
+          this.showPickingBase(atom, x, y);
+
+          if(ic.pk != 0) {
+              if(x !== undefined && y !== undefined) { // mouse over
+                if(me.cfg.showmenu != undefined && me.cfg.showmenu == true) {
+                    y += me.htmlCls.MENU_HEIGHT;
+                }
+                let text =(ic.pk == 1) ? atom.resn + atom.resi + '@' + atom.name : atom.resn + atom.resi;
+                text += ', b: ' + atom.b;
+                if(ic.structures !== undefined && Object.keys(ic.structures).length > 1) {
+                    text = atom.structure + '_' + atom.chain + ' ' + text;
+                    $("#" + ic.pre + "popup").css("width", "190px");
+                }
+                else {
+                    $("#" + ic.pre + "popup").css("width", "130px");
+                }
+                $("#" + ic.pre + "popup").html(text);
+                $("#" + ic.pre + "popup").css("top", y).css("left", x+20).show();
+              }
+              else {
+                  // highlight the sequence background
+                  ic.hlUpdateCls.updateHlAll();
+                  let transformation = {}
+                  transformation.factor = ic._zoomFactor;
+                  transformation.mouseChange = ic.mouseChange;
+                  //transformation.quaternion = ic.quaternion;
+                  transformation.quaternion = {}
+                  transformation.quaternion._x = parseFloat(ic.quaternion._x).toPrecision(5);
+                  transformation.quaternion._y = parseFloat(ic.quaternion._y).toPrecision(5);
+                  transformation.quaternion._z = parseFloat(ic.quaternion._z).toPrecision(5);
+                  transformation.quaternion._w = parseFloat(ic.quaternion._w).toPrecision(5);
+                  if(ic.bAddCommands) {
+                      ic.commands.push('pickatom ' + atom.serial + '|||' + ic.transformCls.getTransformationStr(transformation));
+                      ic.optsHistory.push(me.hashUtilsCls.cloneHash(ic.opts));
+                      ic.optsHistory[ic.optsHistory.length - 1].hlatomcount = Object.keys(ic.hAtoms).length;
+                      if(me.utilsCls.isSessionStorageSupported()) ic.setStyleCls.saveCommandsToSession();
+                      ic.STATENUMBER = ic.commands.length;
+                  }
+                  ic.logs.push('pickatom ' + atom.serial + '(chain: ' + atom.structure + '_' + atom.chain + ', residue: ' + atom.resn + ', number: ' + atom.resi + ', atom: ' + atom.name + ')');
+                  if( $( "#" + ic.pre + "logtext" ).length )  {
+                    $("#" + ic.pre + "logtext").val("> " + ic.logs.join("\n> ") + "\n> ").scrollTop($("#" + ic.pre + "logtext")[0].scrollHeight);
+                  }
+                  // update the interaction flag
+                  ic.bSphereCalc = false;
+                  //me.htmlCls.clickMenuCls.setLogCmd('set calculate sphere false', true);
+                  ic.bHbondCalc = false;
+                  //me.htmlCls.clickMenuCls.setLogCmd('set calculate hbond false', true);
+              }
+          }
+      }
+      //============ End of: modify default functions =========
+</script>
+<script>
+    $( document ).ready(function() {
+          let url_1 = 'http://0.0.0.0:8080/static/san.pdb'
+          let url_new = decodeURIComponent(url_1)
+          var cfg = {
+              divid: 'icn3dwrap',
+              width: '50%',
+              height: '50%',
+              resize: true,
+              rotate: 'right',
+              mobilemenu: true,
+              showcommand: true,
+              showtitle: true
+          };
+          cfg['url'] = 'pdb|'+url_new
+          var icn3dui = new icn3d.iCn3DUI(cfg);
+          icn3dui.show3DStructure();
+          //communicate with the 3D viewer with chained functions
+          $.when(icn3dui.show3DStructure()).then(function() {
+               icn3dui.setOption('color', 'cyan');
+          });
+    });
+</script>
+</body>
+</html>

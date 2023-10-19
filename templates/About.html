@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About US</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        #fig2{
+        position: absolute;
+        left: 32%;
+        top: 55%;
+        }
+        * {
+            font-family: 'Quicksand', sans-serif;
+
+        }
+        #navb {
+            position: relative;
+            background-image: linear-gradient(to right, rgb(64, 137, 233, 1), rgba(64, 137, 233, 0.2));
+            padding: 1rem;
+            padding-bottom: 0rem;
+            z-index: 1;
+            box-sizing: border-box;
+            top: -1vh;
+        }
+
+
+        #navb ul li {
+            display: inline-block;
+
+
+            margin-left: 11rem;
+            font-family: 'Nunito', sans-serif;
+            font-size: 19px;
+
+            border-style: none;
+            color: white;
+            padding: 1em;
+        }
+
+        #navb ul li:hover {
+            text-decoration: underline;
+            color: black;
+            background-color: white;
+        }
+        .hb {
+            height: 7rem;
+            height: 14em;
+            position: relative;
+            top: 4rem;
+            left: 1rem;
+        }
+         nav>p {
+            font-size: 38px;
+            display: inline-block;
+            left: 12rem;
+            top: -2rem;
+            position: relative;
+            color: white;
+        }
+        #iiser {
+            height: 12rem;
+            position: relative;
+            left: 23rem;
+            top: 2rem;
+        }
+         #home {
+            position: relative;
+            left: 12rem;
+        }
+        #head{
+       text-align:center;
+
+        }
+    </style>
+</head>
+<body>
+<nav id="navb">
+        {% load static %}
+        <img src="{% static 'ASAP2.png'%}" class="hb">
+        <p id="pmtk"><strong>Automated Sequence-Structure Analysis Project 1.0</strong></p>
+        <img src="{% static 'iiser.png' %}" id="iiser">
+        <ul id="home">
+            <li class="redirect"> Home</li>
+            <li class="redirect">Contacts</li>
+            <li class="redirect"> People</li>
+            <li class="redirect"> About</li>
+        </ul>
+</nav>
+<h1 id="head">ASSAP 1.0 : Functionalities</h1>
+{% load static %}
+<img src="{% static 'ASAP1.png'%}" id="fig2">
+</body>
+</html>

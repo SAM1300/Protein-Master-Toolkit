@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PM Tool Kit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .g-3 {
+            margin-bottom: 1em;
+        }
+
+        #navb {
+            position: sticky;
+            background-image: linear-gradient(to right, rgb(64, 137, 233, 1), rgb(64, 137, 233, 0.2));
+            padding: 1rem;
+            padding-bottom: 0rem;
+            z-index: 1;
+            box-sizing: border-box;
+            top: 12px;
+        }
+
+
+        #navb ul li {
+            display: inline-block;
+            margin-left: 11rem;
+            font-family: 'Nunito', sans-serif;
+            font-size: 19px;
+
+            border-style: none;
+            color: white;
+            padding: 1em;
+        }
+
+        #navb ul li:hover {
+            text-decoration: underline;
+            color: black;
+            background-color: white;
+        }
+
+        #iiser {
+            height: 12rem;
+            position: relative;
+            left: 23rem;
+            top: 0rem;
+        }
+
+        .hb {
+            height: 14rem;
+
+            position: relative;
+            top: 0rem;
+            left: 1rem;
+        }
+
+        nav>p {
+            font-size: 75px;
+            display: inline-block;
+            left: 12rem;
+            top: 1rem;
+            position: relative;
+            color: white;
+        }
+
+        /* The typing effect */
+
+
+
+
+        #home {
+            position: relative;
+            left: 12rem;
+        }
+
+        .lead {
+            text-decoration: underline;
+            text-align: center;
+            font-size: 3em;
+        }
+
+        #req {
+            float: right;
+            position: absolute;
+            left: 90rem;
+            top: 20.5rem;
+            background-color: azure;
+            width: 19vw;
+        }
+
+        #req h1 {
+            font-size: 27px;
+            background-image: linear-gradient(to right, rgb(64, 137, 233, 1), rgb(64, 137, 233, 0.2));
+            color: white;
+            padding-left: 2rem;
+            padding-right: 1rem;
+            text-align: center;
+        }
+
+        #req h2 {
+            font-size: 25px;
+        }
+
+        #lab {
+            font-size: 19px;
+        }
+
+        .new_design {
+            background-image: linear-gradient(to right, rgb(64, 137, 233, 1), rgb(64, 137, 233, 0.2));
+            color: white;
+            padding-left: 10px;
+            height: 35px;
+            padding-top: 0.5vh;
+        }
+
+        #ip {
+            font-size: 24px;
+            width: 69.5vw;
+            background-image: linear-gradient(to right, rgb(64, 137, 233, 1), rgb(64, 137, 233, 0.2));
+            color: white;
+            padding-left: 10px;
+            height: 35px;
+        }
+
+        #alert {
+            
+            position: fixed;
+            top: 0vh;
+            left: 50vw;
+            background-color: whitesmoke;
+            box-shadow: 5px 5px 5px grey;
+            z-index: 12;
+            width: 19vw;
+            padding-left: 7px;
+            overflow:hidden;
+            height: 0px;
+            transition: height 1s ease-in-out;
+            -webkit-transition: height 1s ease-in-out;
+            -moz-transition: height 1s ease-in-out;
+
+        }
+        #left{
+            position: absolute;
+            left: 5vw;
+            background-color: azure;
+            width: 71%;
+            padding-left: 2%;
+            box-sizing: border-box;
+            padding-top: 2vh;
+            top: 32vh;
+            padding-right: 2vw;
+        }
+
+
+        .tooltiptext{
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+
+        /* Position the tooltip text - see examples below! */
+         position: absolute;
+         z-index: 2;}
+         i:hover i+span{
+         visibility: visible;}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <!--<div id="left">
+            <img
+                src="data:image/png;base64,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">
+
+        </div>-->
+        <div>
+            <!-- <img src="http://www.iisertirupati.ac.in/images/logo.jpg" id="right">-->
+        </div>
+        <!--<img src="Protein Master.png">-->
+        <nav id="navb">
+            {% load static %}
+            <img src="{% static 'hb lab logo.png' %}" class="hb">
+            <p id="pmtk"><strong>Protein Master ToolKit</strong></p>
+            {% load static %}
+            <img src="{% static 'iiser.png' %}" id="iiser">
+            <ul id="home">
+                <li> Home </li>
+                <li>Contacts</li>
+                <li> People</li>
+                <li> Academic</li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <main>
+           <div class="py-5 text-center">
+                <!-- <img class="d-block mx-auto mb-4" src="http://www.iisertirupati.ac.in/images/logo.jpg" alt="" width="100%" height="100%">-->
+                <!-- <h1>Protein Master Toolkit</h1>-->
+               <!-- <p class="lead"><strong>Input Submission</strong></p>-->
+                <!-- <p>{{message |safe}}</p>-->
+            </div>
+            <div id="alert">
+                <h2>Alert</h2>
+                <p> Results of this input will be sent with an email</p>
+            </div>
+            <div class="row g-5">
+                <script>
+                    var currentValue = 0;
+                    function handleClick(myRadio) {
+                        if (myRadio.id === 'q3-selectInput') {
+                            document.getElementById('q1-selectInput-content').style = 'display:block';
+                            document.getElementById('q2-selectInput-content').style = 'display:block';
+                        } else if (myRadio.id === 'q2-selectInput') {
+                            document.getElementById(myRadio.id + '-content').style = 'display:block';
+                            document.getElementById('q1-selectInput-content').style = 'display:none';
+                        } else if (myRadio.id === 'q1-selectInput') {
+                            document.getElementById(myRadio.id + '-content').style = 'display:block';
+                            document.getElementById('q2-selectInput-content').style = 'display:none';
+                        }
+                    }
+                </script>
+
+
+                <form class="needs-validation was-validated" method="post" action="" >
+                </form>
+                <form name="myForm" class="needs-validation was-validated" method="post" action="contacts/"  onsubmit="return validateForm()" required> {% csrf_token %}
+                    <div id="req">
+                        <h1> Required Inputs </h1><br>
+                        <!-- <div id="req_sub">
+                        <h2>Element name</h2>
+                        <label for="mod" id="lab">Modeller</label>
+                        <input type="text" id="mod">
+                    </div>-->
+                    </div>
+                    <div id = "left">
+                    <div class="row g-3">
+                        <span id="ip">Select Input Data Type *</span>
+                        <div class="col-sm-3">
+                            <input type="radio" class="form-radio validate[required]" id="q1-selectInput"
+                                onclick="handleClick(this);" name="selectInput" value="Sequence Data" placeholder=""
+                                required>
+                            <label for="q1-selectInput" class="form-label">Sequence Data</label>
+                            <div class="invalid-feedback">
+                                Please select an input type.
+                            </div>
+                            
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="radio" class="form-radio validate[required]" id="q2-selectInput"
+                                onclick="handleClick(this);" name="selectInput" value="Sequence Data" placeholder="">
+                            <label for="q2-selectInput" class="form-label">PDB Structure Data</label>
+                            <div class="invalid-feedback">
+                                Please select an input type.
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="radio" class="form-radio validate[required]" id="q3-selectInput"
+                                onclick="handleClick(this);" name="selectInput" value="Sequence Data" placeholder="">
+                            <label for="q3-selectInput" class="form-label">Sequence & PDB both</label>
+                            <div class="invalid-feedback">
+                                Please select an input type.
+                            </div>
+                        </div>
+                    </div>
+                    <div id="q1-selectInput-content" style="display: none;">
+                        <hr class="my-4">
+                        <h4 class="mb-3 new_design">Sequence Automated Methods :</h4>
+                        <div class="row g-3">
+                            <span>Structure Prediction <i class="fa-solid fa-circle-question"></i><span class="tooltiptext"> This Methods predict structure from sequence</span>:</span>
+                           
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q4-structurePrediction"
+                                    name="Alphafold" value="AlphaFold" placeholder="">
+                                <label for="q4-structurePrediction" class="form-label">Alpha Fold Database</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q5-structurePrediction"
+                                    name="methods[]" value="Consurf" placeholder="">
+                                <label for="q5-structurePrediction" class="form-label">Consurf Server</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q6-structurePrediction"
+                                    name="methods[]" value="Orion" placeholder="">
+                                <label for="q6-structurePrediction" class="form-label">Orion Web server</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q7-structurePrediction"
+                                    name="methods[]" value="Lzerd" placeholder="">
+                                <label for="q7-structurePrediction" class="form-label">Lzerd Server</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q8-structurePrediction"
+                                    name="methods[]" value="ITASSER" placeholder="">
+                                <label for="q8-structurePrediction" class="form-label">I-TASSER</label>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <span>Gene Ontology & Functional Analysis:</span>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q9-gofa" name="methods[]"
+                                    value="interpro" placeholder="">
+                                <label for="q9-gofa" class="form-label">InterPro</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q10-gofa" name="methods[]"
+                                    value="DeepGO" placeholder="">
+                                <label for="q10-gofa" class="form-label">Deep-GO</label>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <span>Disorder Prediction & Binding :</span>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q11-dpb" name="methods[]"
+                                    value="flDPnn" placeholder="">
+                                <label for="q11-dpb" class="form-label">flDPnn</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q12-dpb" name="methods[]"
+                                    value="IUPred3" placeholder="">
+                                <label for="q12-dpb" class="form-label">IUPred-3</label>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <span>Statistical & Direct Coupling :</span>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q13-sdc" name="methods[]"
+                                    value="CoeViz2" placeholder="">
+                                <label for="q13-sdc" class="form-label">Coeviz2</label>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <span>Crystallography :</span>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q14-cry" name="methods[]"
+                                    value="serp" placeholder="">
+                                <label for="q14-cry" class="form-label">Serp Server</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q15-cry" name="methods[]"
+                                    value="Homomerprediction" placeholder="">
+                                <label for="q15-cry" class="form-label">Galaxy Serve- Homomer Prediction r</label>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <span>Miscellaneous :</span>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q16-misc" name="methods[]"
+                                    value="reactome" placeholder="">
+                                <label for="q16-misc" class="form-label">Reactome </label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q17-misc" name="methods[]"
+                                    value="Swiss-model Template Search" placeholder="">
+                                <label for="q17-misc" class="form-label">Swiss-model Template Search</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="q2-selectInput-content" style="display: none;">
+                        <hr class="my-4">
+                        <h4 class="mb-3 new_design">PDB Automated Methods :</h4>
+                        <div class="row g-3">
+                            <span>MSA & Phylogeny Analysis :</span>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q18-msapa" name="methods[]"
+                                    value="Consurf Server" placeholder="">
+                                <label for="q18-msapa" class="form-label">Consurf Server</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q19-msapa" name="methods[]"
+                                    value="Muscle" placeholder="">
+                                <label for="q19-msapa" class="form-label">Muscle</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q20-msapa" name="methods[]"
+                                    value="ClustalO" placeholder="">
+                                <label for="q20-msapa" class="form-label">Clustal-Omega</label>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <span>Structure Alignment :</span>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q21-stralign" name="mTMalign"
+                                    value="mTMalign" placeholder="">
+                                <label for="q21-stralign" class="form-label">mTM Alignment</label>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <span>Structure Analysis :</span>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q22-stranal" name="methods[]"
+                                    value="CUPSAT" placeholder="">
+                                <label for="q22-stranal" class="form-label">CUPSAT</label>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <span>Structure Refinement :</span>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q23-strref" name="methods[]"
+                                    value="Deep Refiner" placeholder="">
+                                <label for="q23-strref" class="form-label">Deep Refiner</label>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <span>Visualizer :</span>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q24-visu" name="methods[]"
+                                    value="Protein Contact Atlas" placeholder="">
+                                <label for="q24-visu" class="form-label">Protein Contact Atlas</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q25-visu" name="methods[]"
+                                    value="PLiP" placeholder="">
+                                <label for="q25-visu" class="form-label">PLiP</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q26-visu" name="methods[]"
+                                    value="iCanSee3D" placeholder="">
+                                <label for="q26-visu" class="form-label">iCanSee3D</label>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <span>Miscellaneous :</span>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q27-pbdmisc" name="methods[]"
+                                    value="ProPkA" placeholder="">
+                                <label for="q27-pbdmisc" class="form-label">ProPkA</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q28-pbdmisc" name="methods[]"
+                                    value="Super Charge" placeholder="">
+                                <label for="q28-pbdmisc" class="form-label">Super Charge</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" class="form-check-input" id="q29-pbdmisc" name="methods[]"
+                                    value="Pepti-Drive" placeholder="">
+                                <label for="q29-pbdmisc" class="form-label">Pepti-Drive</label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <h4 class="mb-3 new_design">Submission Details :</h4>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="q30-jobname" class="form-label">Job Name</label><br>
+                            <input type="text" class="form-control" id="q30-jobname" name="jobname" value="" required=""
+                                placeholder="">
+                            <div class="invalid-feedback">
+                                Please enter text.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="q31-email" class="form-label">Email</label><br>
+                            <input type="text" class="form-control" id="q31-email" name="email" value="" required=""
+                                placeholder="">
+                            <div class="invalid-feedback">
+                                Please enter text.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="q32-qpn" class="form-label">Query Protein Name</label><br>
+                            <input type="text" class="form-control" id="q32-qpn" name="fname" value=""
+                                placeholder="" required>
+                            <div class="invalid-feedback">
+                                Please enter text.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-sm-6" id="togg">
+                            <div id="togg-child">
+                                <label for="q33-qps" class="form-label">Query Protein Sequence</label><br>
+                                <!-- <textarea class="form-textarea custom-hint-group form-custom-hint form-control" id="q33-qps"
+                                name="qps" placeholder=""></textarea>-->
+                                <input type="file" id="q33-qps">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="q32-pcid" class="form-label">Protein Chain id</label><br>
+                            <select name="pcid" class="form-control" id="q32-pcid">
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="others">others</option>
+                            </select><br><br>
+                        </div>
+                    </div>-->
+                    <hr class="my-4">
+                    <input class="w-100 btn btn-primary btn-lg" type="submit" /><br><br>
+                    <input class="w-100 btn btn-danger btn-lg" type = "reset"/>
+                </div>
+                </form>
+
+            </div>
+        </main>
+       <!-- <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">© 2021 HB-Lab, IISER Tirupati</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Suggest</a></li>
+                <li class="list-inline-item"><a href="#">Contact</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>-->
+        <!-- <script src="https://getbootstrap.com/docs/5.1/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+        <script src="https://getbootstrap.com/docs/5.1/examples/checkout/form-validation.js"></script>-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+
+        <script src="input.js"></script>
+    </div>
+
+
+</body>
+
+</html>

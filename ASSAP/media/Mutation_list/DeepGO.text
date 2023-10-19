@@ -1,0 +1,35 @@
+Cellular Component
+GO:0110165 - cellular anatomical entity - 0.940
+GO:0005622 - intracellular anatomical structure - 0.934
+GO:0043226 - organelle - 0.890
+GO:0043227 - membrane-bounded organelle - 0.888
+GO:0005737 - cytoplasm - 0.865
+GO:0043229 - intracellular organelle - 0.862
+GO:0043231 - intracellular membrane-bounded organelle - 0.859
+GO:0005739 - mitochondrion - 0.824
+GO:0005740 - mitochondrial envelope - 0.550
+GO:0016020 - membrane - 0.550
+GO:0031090 - organelle membrane - 0.550
+GO:0031966 - mitochondrial membrane - 0.550
+GO:0031967 - organelle envelope - 0.550
+GO:0031975 - envelope - 0.550
+GO:0005743 - mitochondrial inner membrane - 0.522
+GO:0019866 - organelle inner membrane - 0.522
+GO:0032991 - protein-containing complex - 0.369
+GO:1902494 - catalytic complex - 0.329
+GO:1990204 - oxidoreductase complex - 0.329
+GO:0070469 - respirasome - 0.313
+GO:0098796 - membrane protein complex - 0.313
+GO:0098803 - respiratory chain complex - 0.313
+Molecular Function
+GO:0003824 - catalytic activity - 0.353
+GO:0016491 - oxidoreductase activity - 0.353
+Biological Process
+GO:0008152 - metabolic process - 0.503
+GO:0009987 - cellular process - 0.484
+GO:0044237 - cellular metabolic process - 0.481
+GO:0006091 - generation of precursor metabolites and energy - 0.394
+GO:0015980 - energy derivation by oxidation of organic compounds - 0.323
+GO:0045333 - cellular respiration - 0.323
+GO:0044281 - small molecule metabolic process - 0.321
+GO:0022900 - electron transport chain - 0.309

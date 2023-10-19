@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSMOL</title>
+    <link rel="stylesheet" href="http://0.0.0.0:1234/LiteMol-master/dist/css/LiteMol-plugin.css" type="text/css" />
+    <script src="http://0.0.0.0:1234/LiteMol-master/dist/js/LiteMol-plugin.js"></script>
+</head>
+<body>
+<div id="litemol" style="width: 640px; height: 480px; margin-top: 200px; position: relative"></div>
+<script>
+    var plugin = LiteMol.Plugin.create({ target: '#litemol'});
+        plugin.loadMolecule({
+        url : "http://0.0.0.0:1234/4hhb.pdb",
+        format: "pdb"
+        });
+</script>
+<!--<script type="text/javascript" src="LiteMol-master/dist/js/LiteMol-viewer.js" >
+    LiteMol.Viewer.createInstance(document.getElementById('litemol'), { isExpanded: true });
+</script>-->
+
+</body>
+</html>

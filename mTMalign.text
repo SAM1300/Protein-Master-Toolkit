@@ -1,0 +1,11 @@
+Warnings
+LOG:
+Submitted protein contained multiple chains. Currently, mTM-align cannot be used for oligomeric proteins, hence it will use only the first protein chain from the provided file.
+The job has been submitted successfully. The job id assigned is mTM021294.
+
+You can track the job status and the results at: http://yanglab.nankai.edu.cn/mTM-align/output/mTM021294/
+As you selected to keep your data private, a password was issued to protect your results: ineb3x.
+
+Alternatively, you can directly check the results at: http://yanglab.nankai.edu.cn/mTM-align/output/mTM021294/ineb3x
+A notification email will be sent to sanketmunishwar@gmail.com after the search is completed.
+(Please note that due to the restrict of Google usage in the mainland of China, our system may fail to send an email notification to gmail accounts. In such case, please bookmark the results page to access the search results later.)
